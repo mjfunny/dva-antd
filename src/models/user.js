@@ -15,8 +15,7 @@ const userList = {
 
   effects: {
     *query({ payload }, { call, put }) {  // eslint-disable-line
-      setTimeout(function() {
-      }, 2000);
+      yield call(delay,500);
       yield put({ type: 'querySuccess' });
     },
   },
@@ -56,3 +55,9 @@ const userList = {
 export default { 
   userList,
 };
+
+function delay(timeout){ 
+  return new Promise(resolve=>{ 
+    setTimeout(resolve, timeout);
+  });
+}

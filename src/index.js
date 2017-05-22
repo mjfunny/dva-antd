@@ -1,6 +1,4 @@
 import dva from 'dva';
-import { useRouterHistory } from 'dva/router';
-import { createHashHistory } from 'history';
 import { userList } from './models/user'
 import './index.less';
 
