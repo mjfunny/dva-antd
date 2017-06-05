@@ -6,9 +6,13 @@ import { connect } from 'dva';
 class UserTable extends Component{ 
 
   componentDidMount(){ 
+    // this.props.dispatch({ 
+    //   type:'userList/query'
+    // });
+
     this.props.dispatch({ 
-      type:'userList/query'
-    })
+      type:'userList/load'
+    });
   }
 
   handleEdit(record){ 
@@ -36,8 +40,9 @@ class UserTable extends Component{
       key: 'age',
     }, {
       title: '性别',
-      dataIndex: 'sexual',
-      key: 'sexual',
+      dataIndex: 'isMale',
+      key: 'isMale',
+      render:record=>record?'男':'女'
     },{
       title: '住址',
       dataIndex: 'address',
