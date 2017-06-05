@@ -38,6 +38,7 @@ class UserModalButton extends Component{
                 visible ={visible}
                 onCancel={this.handleCancel.bind(this)}
                 onOk    ={this.handleOK.bind(this)}>
+                <Form></Form>
             </Modal>
             </div> 
         );
