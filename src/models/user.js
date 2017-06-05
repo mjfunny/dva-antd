@@ -7,6 +7,7 @@ const userList = {
     data    : null,
     invalid : true,
     loading : true,
+    visible : false,
   },
 
   // subscriptions: {
@@ -15,10 +16,6 @@ const userList = {
   // },
 
   effects: {
-    // *query({ payload }, { call, put }) {  // eslint-disable-line
-    //   yield call(delay,500);
-    //   yield put({ type: 'querySuccess' });
-    // },
     *load({ payload }, { call, put }){ 
       const { data } = yield call(load);
       if (data) {
@@ -33,34 +30,6 @@ const userList = {
   },
 
   reducers: {
-    // query(state, action) {
-    //   return { 
-    //     ...state,
-    //     loading:true
-    //   };
-    // },
-    // querySuccess(state, action){ 
-    //   return { 
-    //     ...state,
-    //     loading: false,
-    //     invalid: false,
-    //     data : [
-    //       {
-    //         uid : 644983,
-    //         name: '马鋆',
-    //         age : 26,
-    //         sexual: '男',
-    //         address: '西湖区湖底公园1号'
-    //       }, {
-    //         uid: 258329 ,
-    //         name: '刘帅',
-    //         age: 23,
-    //         sexual: '男',
-    //         address: '西湖区湖底公园2号'
-    //       }
-    //     ],
-    //   };
-    // },
     testSuccess(state, action) {
       const data = action.payload.data;
       return { 
@@ -68,6 +37,12 @@ const userList = {
         data : data,
         loading: false,
         invalid: false,
+      };
+    },
+    toggleVisible(state, action) {
+      return { 
+        ...state,
+        visible : !state.visible
       };
     },
   },
