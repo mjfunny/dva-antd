@@ -1,11 +1,11 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 
-const Tool = ()=>{ 
-  return ( 
+const Tool = () => {
+  return (
     <div className='page-content'>
-      <span>TOOL</span>    
+      <span>TOOL</span>
     </div>
   );
-}
+};
 
 export default Tool;

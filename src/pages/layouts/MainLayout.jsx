@@ -1,12 +1,13 @@
-import React,{ Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import React, { Component } from 'react';
+import { Layout, Icon } from 'antd';
 import MenuGroup from './MenuGroup';
 import styles from './MainLayout.less';
-const { Header, Content, Footer, Sider } = Layout;
 
-class MainLayout extends Component{ 
-  render(){ 
-    return( 
+const { Header, Content, Sider } = Layout;
+
+class MainLayout extends Component {
+  render() {
+    return (
       <Layout className={styles.layout}>
         <Sider>
           <div className={styles.logo}>

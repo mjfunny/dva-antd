@@ -1,5 +1,5 @@
 import dva from 'dva';
-import { userList } from './models/user'
+import models from './models';
 import './index.less';
 
 // 1. Initialize
@@ -9,7 +9,10 @@ const app = dva();
 // app.use({});
 
 // 3. Model
- app.model(userList);
+//app.model(userList);
+Object.keys(models).forEach((key) => {
+  app.model(models[key]);
+});
 
 // 4. Router
 app.router(require('./router'));
