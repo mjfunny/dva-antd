@@ -41,7 +41,7 @@ module.exports = {
       data: dataBase,
     });
   },
-  'GET /api/users?id': function (req, res) {
+  'GET /api/users': function (req, res) {
     res.json({
       success: true,
       data: userDetail.data,

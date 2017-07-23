@@ -1,2 +1,14 @@
-# dva-antd
-使用dva脚手架构建react项目
+
+# Getting Started
+## install
+```
+git clone git@github.com:mjfunny/dva-antd.git
+
+cd dva-antd
+
+npm install
+
+npm start
+
+```
+## mock数据
