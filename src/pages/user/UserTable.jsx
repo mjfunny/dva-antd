@@ -12,6 +12,10 @@ class UserTable extends Component {
   }
 
   handleEdit(record) {
+    this.props.dispatch({
+      type: 'users/detail',
+      payload: { id: record.uid },
+    });
     console.log('edit---', record);
   }
 
