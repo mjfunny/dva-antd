@@ -42,7 +42,7 @@ export default {
     // 用户详情
     *detail({ payload: { id } }, { call, put }) {
       // const xxx = yield select(state => state.models.xxx);
-      const { data } = yield call(detail, id);
+      const { data } = yield call(detail, { id });
       if (data) {
         yield put({
           type: 'detailSuccess',

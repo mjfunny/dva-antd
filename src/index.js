@@ -9,7 +9,7 @@ const app = dva();
 // app.use({});
 
 // 3. Model
-//app.model(userList);
+// app.model(userList);
 Object.keys(models).forEach((key) => {
   app.model(models[key]);
 });
