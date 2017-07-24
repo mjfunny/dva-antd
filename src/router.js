@@ -15,11 +15,11 @@ function getUserInfo() {
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
-      <Route path="/" component={MainLayout}>
+      <Route path="/" breadcrumbName="Home" component={MainLayout}>
         {/*<IndexRedirect to="user" />*/}
-        <Route path="user" component={UserList} />
-        <Route path="form" component={TestForm} />
-        <Route path="tool" component={Tool} />
+        <Route path="user" breadcrumbName="Users" component={UserList} />
+        <Route path="form" breadcrumbName="Form" component={TestForm} />
+        <Route path="tool" breadcrumbName="Tool" component={Tool} />
       </Route>
       <Route path="login" component={Login} />
     </Router>

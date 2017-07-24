@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Icon } from 'antd';
+import { Layout, Icon, Breadcrumb } from 'antd';
 import MenuGroup from './MenuGroup';
 import styles from './MainLayout.less';
 
@@ -7,6 +7,7 @@ const { Header, Content, Sider } = Layout;
 
 class MainLayout extends Component {
   render() {
+    const { routes, params } = this.props;
     return (
       <Layout className={styles.layout}>
         <Sider>
@@ -17,7 +18,9 @@ class MainLayout extends Component {
           <MenuGroup />
         </Sider>
         <Layout>
-          <Header className={styles.header}>header</Header>
+          <Header className={styles.header}>
+            <Breadcrumb routes={routes} params={params} />
+          </Header>
           <Content className={styles.content}>
             {this.props.children}
           </Content>
