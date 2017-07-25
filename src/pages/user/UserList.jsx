@@ -8,9 +8,7 @@ const UserList = () => {
     <Row>
       <Col span={24}>
         <div style={{ paddingLeft: 20, paddingTop: 15 }}>
-          <UserModalButton
-            title="添加联系人"
-          />
+          <UserModalButton type="create" />
         </div>
       </Col>
       <Col span={24}>

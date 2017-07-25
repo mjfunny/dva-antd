@@ -7,7 +7,6 @@ export default {
 
   },
 
-
   // 订阅 当路由进入 /xxx 则 dispatch 相关 action
   subscriptions: {
     setup({ dispatch, history }) {
