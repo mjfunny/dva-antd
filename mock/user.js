@@ -3,7 +3,7 @@ const mockjs = require('mockjs');
 
 // mock 数据
 const userList = mockjs.mock({
-  'data|30-80': [
+  'data|10-30': [
     {
       uid: '@id',
       name: '@name',
@@ -45,6 +45,29 @@ module.exports = {
     res.json({
       success: true,
       data: userDetail.data,
+    });
+  },
+  'POST /api/users/create': function (req, res) {
+    res.json({
+      success: true,
+      data: null,
+    });
+  },
+  'POST /api/users/modify': function (req, res) {
+    res.json({
+      success: true,
+      data: null,
+    });
+    // res.json({
+    //   success: false,
+    //   msg: '参数错误,请检查!',
+    //   data: null,
+    // });
+  },
+  'POST /api/users/delete': function (req, res) {
+    res.json({
+      success: true,
+      data: null,
     });
   },
 };

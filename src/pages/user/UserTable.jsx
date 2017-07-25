@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Table, Row, Col } from 'antd';
 import { connect } from 'dva';
-
+import { Table, Row, Col, Popconfirm, message } from 'antd';
+import UserModalButton from './UserModalButton';
 
 class UserTable extends Component {
 
@@ -11,16 +11,17 @@ class UserTable extends Component {
     });
   }
 
-  handleEdit(record) {
-    this.props.dispatch({
-      type: 'users/detail',
-      payload: { id: record.uid },
-    });
-    console.log('edit---', record);
-  }
-
   handleDelete(record) {
-    console.log('delete---', record);
+    const params = {
+      id: record.uid,
+      success: () => {
+        message.success('删除成功!');
+      },
+    };
+    this.props.dispatch({
+      type: 'users/delete',
+      payload: params,
+    });
   }
 
   render() {
@@ -54,16 +55,21 @@ class UserTable extends Component {
           return (
             <Row justify="space-between">
               <Col span={12}>
-                <a
-                  className="col-center"
-                  onClick={this.handleEdit.bind(this, record)}
-                >编辑</a>
+                <UserModalButton
+                  type="edit"
+                  info={record}
+                />
               </Col>
               <Col span={12}>
-                <a
-                  className="col-center"
-                  onClick={this.handleDelete.bind(this, record)}
-                >删除</a>
+                <Popconfirm
+                  title="确认删除该条信息吗?"
+                  okText="OK"
+                  cancelText="cancel"
+                  onConfirm={this.handleDelete.bind(this, record)}
+                >
+                  <a className="col-center">删除</a>
+                </Popconfirm>
+
               </Col>
             </Row>
           );

@@ -1,4 +1,4 @@
-import { query, detail } from '../services/user';
+import { query, detail, create, modify, del } from '../services/user';
 
 export default {
   namespace: 'users',
@@ -9,8 +9,6 @@ export default {
     loading: true,
     visible: false,
   },
-
-
   // 订阅 当路由进入 /xxx 则 dispatch 相关 action
   // subscriptions: {
   //   setup({ dispatch, history }) {
@@ -38,7 +36,14 @@ export default {
         });
       }
     },
-
+    // 新建用户
+    *create({ payload: { isMale, name, age, address, success } }, { call, put }) {
+      yield call(create, { isMale, name, age, address });
+      if (typeof success === 'function') {
+        success();
+      }
+      yield put({ type: 'query' });
+    },
     // 用户详情
     *detail({ payload: { id } }, { call, put }) {
       // const xxx = yield select(state => state.models.xxx);
@@ -51,6 +56,23 @@ export default {
           },
         });
       }
+    },
+    // 修改用户信息
+    *modify({ payload: { isMale, name, age, address, success } }, { call, put }) {
+      yield call(modify, { isMale, name, age, address });
+      if (typeof success === 'function') {
+        success();
+      }
+      yield put({ type: 'query' });
+    },
+
+    // 删除用户
+    *delete({ payload: { id, success } }, { call, put }) {
+      yield call(del, { id });
+      if (typeof success === 'function') {
+        success();
+      }
+      yield put({ type: 'query' });
     },
   },
 
@@ -71,12 +93,6 @@ export default {
         detail: data,
         loading: false,
         invalid: false,
-      };
-    },
-    toggleVisible(state) {
-      return {
-        ...state,
-        visible: !state.visible,
       };
     },
   },

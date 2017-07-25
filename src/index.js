@@ -1,9 +1,14 @@
 import dva from 'dva';
+import { message } from 'antd';
 import models from './models';
 import './index.less';
 
 // 1. Initialize
-const app = dva();
+const app = dva({
+  onError(e) {
+    message.error(e.message);
+  },
+});
 
 // 2. Plugins
 // app.use({});
